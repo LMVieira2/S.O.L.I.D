@@ -1,11 +1,11 @@
 ﻿namespace BootCamp_SOLID._5_Dependency_Inversion
 {
-    public interface INotificationService
+    public interface INotificationService //Abstração
     {
         void NotifyUser(string to, string message);
     }
 
-    public class EmailServiceS : INotificationService
+    public class EmailServiceS : INotificationService //Implementação concreta que segue a abstração
     {
         public void NotifyUser(string to, string message)
         {
@@ -17,7 +17,7 @@
         }
     }
 
-    public class UserController
+    public class UserController //Classe que consome o serviço agora depende da abstração. Modulo de alto nivel
     {
         private readonly INotificationService _notificationService;
 
